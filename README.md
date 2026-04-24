@@ -244,8 +244,7 @@ php artisan test tests/Feature/AuthenticationTest.php
 
 ## 📬 Contact
 
-- **Author**: Your Name
-- **Email**: your.email@example.com
-- **GitHub**: [Your GitHub Profile](https://github.com)
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com)
+- **Author**: Abd Alghafoor Kaser Ghalion
+- **Email**: abed232822@gmail.com
+- **GitHub**: https://github.com/abed232822-stack
 
