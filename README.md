@@ -223,15 +223,8 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 
 ## 🧪 Testing
 
-```bash
-# Run all tests
-php artisan test
-
-# Run with coverage
-php artisan test --coverage
-
-# Run specific test
-php artisan test tests/Feature/AuthenticationTest.php
+```
+Under development...
 ```
 
 ## 📌 Notes
