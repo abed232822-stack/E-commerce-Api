@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('price');
             $table->integer('quantity');
             $table->text('description');
+            $table->string('image')->nullable();
             $table->enum('status',['active','inactive']);
             $table->timestamps();
         });

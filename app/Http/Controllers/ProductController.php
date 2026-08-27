@@ -39,12 +39,16 @@ class ProductController extends Controller implements HasMiddleware
         try{
             DB::beginTransaction();
             $temp=$request->validated();
+            $path = $request->hasFile('image') 
+            ? $request->file('image')->store('categories', 'public') 
+            : null; 
             $product = Product::create([
                 'seller'=>Auth::user()->id,
                 'name'=>$temp['name'],
                 'price'=>$temp['price'],
                 'description'=>$temp['description'],
-                'quantity'=>$temp['quantity']
+                'quantity'=>$temp['quantity'],
+                'image'=>$path
             ]);
             if($request->has('category_ids')){
                 $product->categories()->attach($request->category_ids);

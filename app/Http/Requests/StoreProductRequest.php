@@ -28,6 +28,7 @@ class StoreProductRequest extends FormRequest
             'price'=>'required|numeric',
             'quantity'=>'required|integer',
             'status'=>['required','in:active,inactive'],
+            'image'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category_ids'=>'nullable|array',
             'category_ids.*'=>'integer|exists:categories,id',
         ];

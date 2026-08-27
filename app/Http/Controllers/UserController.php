@@ -27,7 +27,6 @@ class UserController extends Controller implements HasMiddleware
             new Middleware("can:delete user",only:['destroy']),
         ];
     }
-    use HttpResponse;
     public function index()
     {
         try {
@@ -41,6 +40,7 @@ class UserController extends Controller implements HasMiddleware
     {
         try {
             $user = User::create($request->validated());
+            $user->assignRole('customer');
             return $this->success($user);
         } catch (\Throwable $th) {
             return $this->error($th->getMessage());
