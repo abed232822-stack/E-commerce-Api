@@ -19,6 +19,7 @@ class AuthenticationController extends Controller
     {
         $temp=$request->validated();
         $user=User::create($temp);
+        $user->assignRole('customer');
         return $this->success([
             'user'=>new UserResource($user),
             'token'=>$user->createToken('access_token')->plainTextToken

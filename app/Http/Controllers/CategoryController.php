@@ -37,6 +37,10 @@ class CategoryController extends Controller implements HasMiddleware
     {
         try {
             $temp=$request->validated();
+            $path = $request->hasFile('image') 
+            ? $request->file('image')->store('categories', 'public') 
+            : null;             
+            $temp['image']=$path;
             $Category=Category::create($temp);
             return $this->success(new CategoryResource($Category), 'Category created successfully', 201);  
         } catch (\Throwable $th) {

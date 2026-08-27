@@ -47,12 +47,18 @@ class OrderController extends Controller
     {
         try {
             $cart=Auth::user()->carts()->where('status','active')->with('products')->first();
+            $data=[];
+            if($cart){
             $data['products']=$cart->products->map(function($product){
-                return [
-                    'id'=>$product->id,
-                    'quantity'=>$product->pivot->quantity,
-                ];
-            })->toArray();
+                    return [
+                        'id'=>$product->id,
+                        'quantity'=>$product->pivot->quantity,
+                    ];
+                })->toArray();
+            }
+            else {
+                return $this->error('your cart is empty',400);
+            }
             $orderService=new OrderServices();
             $response=$orderService->CreateOrder($data,Auth::user()->id);
             $cart->delete();
